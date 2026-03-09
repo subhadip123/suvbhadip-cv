@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subhadip Paria - Engineering Manager & Blockchain Architect</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --dark:#0a0e1a;
+    --card:#111827;
+    --accent:#6c63ff;
+    --accent2:#00d4aa;
+    --accent3:#f59e0b;
+    --text:#e2e8f0;
+    --muted:#94a3b8;
+    --border:#1e2d45;
+  }
+  body{
+    background:var(--dark);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    line-height:1.6;
+    print-color-adjust:exact;
+    -webkit-print-color-adjust:exact;
+  }
+
+  /* LAYOUT */
+  .page{max-width:960px;margin:0 auto;padding:24px;}
+
+  /* HEADER */
+  .header{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:24px;
+    align-items:center;
+    background:linear-gradient(135deg,#111827 0%,#1a1f35 100%);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:32px;
+    margin-bottom:20px;
+    position:relative;
+    overflow:hidden;
+  }
+  .header::before{
+    content:'';
+    position:absolute;
+    top:-60px;right:-60px;
+    width:200px;height:200px;
+    background:radial-gradient(circle,rgba(108,99,255,.25),transparent 70%);
+  }
+  .header::after{
+    content:'';
+    position:absolute;
+    bottom:-40px;left:200px;
+    width:150px;height:150px;
+    background:radial-gradient(circle,rgba(0,212,170,.15),transparent 70%);
+  }
+  .name{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:38px;
+    font-weight:800;
+    background:linear-gradient(135deg,#fff 0%,var(--accent) 60%,var(--accent2) 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    line-height:1.1;
+  }
+  .title-tag{
+    display:inline-block;
+    margin-top:8px;
+    padding:4px 14px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    border-radius:20px;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.5px;
+    color:#fff;
+    text-transform:uppercase;
+  }
+  .tagline{
+    margin-top:10px;
+    color:var(--muted);
+    font-size:13px;
+    max-width:480px;
+  }
+  .contact-grid{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    text-align:right;
+    z-index:1;
+  }
+  .contact-item{
+    font-size:11.5px;
+    color:var(--muted);
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:6px;
+  }
+  .contact-item a{color:var(--accent2);text-decoration:none;}
+  .contact-icon{font-size:13px;}
+
+  /* GRID LAYOUT */
+  .main-grid{display:grid;grid-template-columns:1fr 300px;gap:16px;}
+  .left{display:flex;flex-direction:column;gap:16px;}
+  .right{display:flex;flex-direction:column;gap:16px;}
+
+  /* CARDS */
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:20px;
+  }
+  .card-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:14px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--border);
+    display:flex;align-items:center;gap:8px;
+  }
+  .card-title::before{
+    content:'';
+    display:block;
+    width:3px;height:14px;
+    background:linear-gradient(var(--accent),var(--accent2));
+    border-radius:2px;
+  }
+
+  /* EXPERIENCE */
+  .exp-item{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--border);}
+  .exp-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+  .exp-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;}
+  .exp-role{
+    font-weight:700;font-size:14px;
+    background:linear-gradient(90deg,#fff,var(--accent2));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .exp-badge{
+    font-size:10px;padding:2px 10px;
+    background:rgba(108,99,255,.15);
+    border:1px solid rgba(108,99,255,.3);
+    border-radius:20px;color:var(--accent);
+    white-space:nowrap;
+  }
+  .exp-company{font-size:12px;color:var(--accent2);font-weight:500;margin-bottom:6px;}
+  .exp-bullets{list-style:none;padding:0;}
+  .exp-bullets li{
+    font-size:12px;color:var(--muted);
+    padding:3px 0 3px 14px;
+    position:relative;
+  }
+  .exp-bullets li::before{
+    content:'▹';position:absolute;left:0;color:var(--accent);font-size:10px;top:4px;
+  }
+
+  /* PROJECTS */
+  .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .proj-card{
+    background:#0d1424;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:14px;
+    transition:border-color .2s;
+  }
+  .proj-card:hover{border-color:var(--accent);}
+  .proj-name{font-weight:700;font-size:12.5px;color:#fff;margin-bottom:4px;}
+  .proj-desc{font-size:11px;color:var(--muted);margin-bottom:8px;line-height:1.5;}
+  .proj-tags{display:flex;flex-wrap:wrap;gap:4px;}
+  .tag{
+    font-size:9.5px;padding:2px 7px;
+    background:rgba(0,212,170,.1);
+    border:1px solid rgba(0,212,170,.2);
+    border-radius:10px;color:var(--accent2);
+  }
+
+  /* SKILLS */
+  .skill-group{margin-bottom:14px;}
+  .skill-group:last-child{margin-bottom:0;}
+  .skill-group-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent3);margin-bottom:8px;}
+  .skill-pills{display:flex;flex-wrap:wrap;gap:5px;}
+  .pill{
+    font-size:10.5px;padding:4px 10px;
+    background:rgba(255,255,255,.05);
+    border:1px solid var(--border);
+    border-radius:20px;color:var(--text);
+  }
+  .pill.hot{
+    background:rgba(108,99,255,.12);
+    border-color:rgba(108,99,255,.35);
+    color:var(--accent);
+  }
+
+  /* EDUCATION */
+  .edu-item{
+    display:flex;gap:12px;align-items:flex-start;
+    padding-bottom:12px;margin-bottom:12px;
+    border-bottom:1px solid var(--border);
+  }
+  .edu-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  .edu-icon{
+    width:34px;height:34px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:15px;flex-shrink:0;
+  }
+  .edu-degree{font-weight:700;font-size:12.5px;color:#fff;}
+  .edu-school{font-size:11px;color:var(--accent2);}
+  .edu-meta{font-size:10.5px;color:var(--muted);}
+
+  /* ACHIEVEMENTS */
+  .ach-item{
+    display:flex;gap:10px;align-items:flex-start;
+    margin-bottom:10px;
+    font-size:11.5px;color:var(--muted);
+  }
+  .ach-item:last-child{margin-bottom:0;}
+  .ach-dot{
+    width:18px;height:18px;flex-shrink:0;
+    background:linear-gradient(135deg,var(--accent3),#f97316);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:9px;margin-top:1px;
+  }
+
+  /* STATS ROW */
+  .stats-row{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:12px;margin-bottom:16px;
+  }
+  .stat-box{
+    background:linear-gradient(135deg,#111827,#1a1f35);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:14px;
+    text-align:center;
+  }
+  .stat-num{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:26px;font-weight:800;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .stat-label{font-size:10px;color:var(--muted);margin-top:2px;}
+
+  /* PROFILE SUMMARY */
+  .summary-text{font-size:12.5px;color:var(--muted);line-height:1.8;}
+  .summary-text strong{color:var(--text);}
+
+  /* LANG */
+  .lang-item{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;font-size:11.5px;}
+  .lang-bar{height:3px;background:var(--border);border-radius:2px;margin-top:2px;width:100%;}
+  .lang-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+
+  /* PRINT */
+  @media print{
+    body{background:#fff!important;color:#000!important;}
+    .page{padding:8px;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="name">Subhadip Paria</div>
+      <div class="title-tag">⚡ Engineering Manager · Blockchain Architect · Full-Stack</div>
+      <p class="tagline">Building scalable distributed systems, DeFi platforms & enterprise SaaS with 6+ years of hands-on engineering leadership.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-item"><span class="contact-icon">📱</span> +91 97752 09923</div>
+      <div class="contact-item"><span class="contact-icon">✉️</span> <a href="mailto:subhadipparia@gmail.com">subhadipparia@gmail.com</a></div>
+      <div class="contact-item"><span class="contact-icon">💼</span> <a href="https://www.linkedin.com/in/subhadip-paria-08993b133">LinkedIn</a></div>
+      <div class="contact-item"><span class="contact-icon">🐙</span> <a href="https://github.com/subhadip123">github.com/subhadip123</a></div>
+      <div class="contact-item"><span class="contact-icon">📍</span> Kolkata, West Bengal, India</div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-num">6+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Live Products Shipped</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Technologies Mastered</div>
+    </div>
+  </div>
+
+  <div class="main-grid">
+    <div class="left">
+
+      <!-- SUMMARY -->
+      <div class="card">
+        <div class="card-title">Profile Summary</div>
+        <p class="summary-text">
+          Engineering Manager & Blockchain Architect with <strong>6+ years</strong> of experience designing and delivering <strong>enterprise-grade distributed systems</strong>, <strong>Web3/DeFi platforms</strong>, and <strong>cloud-native SaaS products</strong>. Expert in <strong>Solidity, Rust, Solana, and EVM-compatible chains</strong>. Proven track record leading cross-functional engineering teams, defining <strong>Domain-Driven Design (DDD) architectures</strong>, and shipping <strong>serverless micro-service ecosystems</strong> at scale. Passionate about hardware-software integration with hands-on experience in <strong>Arduino & Raspberry Pi</strong>.
+        </p>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="card">
+        <div class="card-title">Work Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Engineering Manager</div>
+            <div class="exp-badge">Jul 2022 – Present</div>
+          </div>
+          <div class="exp-company">Techno-Exponent, Salt Lake Sector V, Kolkata</div>
+          <ul class="exp-bullets">
+            <li>Lead and mentor a team of 12+ engineers across backend, blockchain, and frontend domains.</li>
+            <li>Architect complex multi-chain blockchain solutions (EVM, Solana) and define smart contract standards for DeFi & NFT projects.</li>
+            <li>Designed Domain-Driven Design (DDD) micro-service architectures, reducing system coupling and improving scalability by 3×.</li>
+            <li>Oversee deployment of serverless solutions using AWS Lambda & GCP Cloud Functions, cutting infrastructure cost by ~40%.</li>
+            <li>Act as Software Architect on multiple SaaS products — defining data models, API contracts, and service boundaries.</li>
+            <li>Introduced Delphi/RAD Studio + TMS WebCore for cross-platform desktop/web enterprise modules.</li>
+            <li>Integrated IoT hardware (Raspberry Pi, Arduino) into production systems for real-time sensor data pipelines.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Senior Software Developer</div>
+            <div class="exp-badge">Jul 2019 – Jun 2022</div>
+          </div>
+          <div class="exp-company">Techno-Exponent, Salt Lake Sector V, Kolkata</div>
+          <ul class="exp-bullets">
+            <li>Built and deployed 10+ full-stack products across social media, medical, dating, and fintech verticals.</li>
+            <li>Developed blockchain MVP — secure voting system using Solidity + IoT biometric authentication.</li>
+            <li>Implemented real-time systems using Socket.io, Firebase Realtime DB, and WebRTC-based video calling (Twilio, Agora).</li>
+            <li>Built data scraping automation pipelines using Python (Selenium, BeautifulSoup, Pandas, NumPy).</li>
+            <li>Integrated payment gateways: Stripe, Elavon, PayPal, In-App Purchase (iOS/Android).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="card">
+        <div class="card-title">Key Projects</div>
+        <div class="proj-grid">
+
+          <div class="proj-card">
+            <div class="proj-name">🔗 Multi-Chain DeFi Platform</div>
+            <div class="proj-desc">Smart contract architecture across EVM + Solana. Token staking, liquidity pools, governance voting.</div>
+            <div class="proj-tags"><span class="tag">Solidity</span><span class="tag">Rust</span><span class="tag">Solana</span><span class="tag">Web3.js</span></div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-name">🏗️ SaaS Micro-Service Platform</div>
+            <div class="proj-desc">DDD architecture with event-driven services, API gateway, and serverless compute layers.</div>
+            <div class="proj-tags"><span class="tag">AWS Lambda</span><span class="tag">Node.js</span><span class="tag">Nest.js</span><span class="tag">DDD</span></div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-name">🗳️ Secure Voting System</div>
+            <div class="proj-desc">Blockchain-based tamper-proof voting with biometric IoT authentication (MCA Major Project).</div>
+            <div class="proj-tags"><span class="tag">Solidity</span><span class="tag">Ethereum</span><span class="tag">IoT</span><span class="tag">Arduino</span></div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-name">🏥 DoctorScan</div>
+            <div class="proj-desc">Medical appointment + video/fax platform. Twilio video, Firebase realtime, PostgreSQL backend.</div>
+            <div class="proj-tags"><span class="tag">Twilio</span><span class="tag">PostgreSQL</span><span class="tag">AWS</span></div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-name">🎵 Govlia</div>
+            <div class="proj-desc">Music competition app with fan voting, leaderboard ranking, and payment integration.</div>
+            <div class="proj-tags"><span class="tag">Node.js</span><span class="tag">Elavon</span><span class="tag">In-App</span></div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-name">📟 IoT Sensor Pipeline</div>
+            <div class="proj-desc">Raspberry Pi + Arduino real-time sensor data ingestion into cloud dashboards.</div>
+            <div class="proj-tags"><span class="tag">Raspberry Pi</span><span class="tag">Arduino</span><span class="tag">MQTT</span></div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-name">🖥️ Enterprise Desktop Suite</div>
+            <div class="proj-desc">Cross-platform enterprise tool using Delphi RAD Studio + TMS WebCore with complex DB architecture.</div>
+            <div class="proj-tags"><span class="tag">Delphi</span><span class="tag">TMS WebCore</span><span class="tag">RAD Studio</span></div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-name">🤝 Joytell</div>
+            <div class="proj-desc">Social media platform with real-time chat, live streaming, and follow system.</div>
+            <div class="proj-tags"><span class="tag">Socket.io</span><span class="tag">Agora</span><span class="tag">Stripe</span></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /left -->
+
+    <div class="right">
+
+      <!-- CORE SKILLS -->
+      <div class="card">
+        <div class="card-title">Core Skills</div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">🔗 Blockchain & Web3</div>
+          <div class="skill-pills">
+            <span class="pill hot">Solidity</span>
+            <span class="pill hot">Rust</span>
+            <span class="pill hot">Solana</span>
+            <span class="pill hot">Smart Contracts</span>
+            <span class="pill hot">Web3.js</span>
+            <span class="pill hot">Truffle</span>
+            <span class="pill hot">Hardhat</span>
+            <span class="pill hot">DeFi</span>
+            <span class="pill hot">NFT</span>
+            <span class="pill hot">Ethereum</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">☁️ Cloud & Architecture</div>
+          <div class="skill-pills">
+            <span class="pill hot">AWS Lambda</span>
+            <span class="pill hot">Serverless</span>
+            <span class="pill hot">Micro-Services</span>
+            <span class="pill hot">DDD</span>
+            <span class="pill hot">SaaS</span>
+            <span class="pill">AWS EC2/S3</span>
+            <span class="pill">GCP</span>
+            <span class="pill">Cloud Functions</span>
+            <span class="pill">Nginx</span>
+            <span class="pill">Docker</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">⚙️ Backend</div>
+          <div class="skill-pills">
+            <span class="pill hot">Node.js</span>
+            <span class="pill hot">Nest.js</span>
+            <span class="pill">Express</span>
+            <span class="pill">Python</span>
+            <span class="pill">REST APIs</span>
+            <span class="pill">GraphQL</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">🖥️ Desktop & Cross-Platform</div>
+          <div class="skill-pills">
+            <span class="pill hot">Delphi</span>
+            <span class="pill hot">RAD Studio</span>
+            <span class="pill hot">TMS WebCore</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">🗄️ Databases</div>
+          <div class="skill-pills">
+            <span class="pill">MySQL</span>
+            <span class="pill">PostgreSQL</span>
+            <span class="pill">MongoDB</span>
+            <span class="pill">Redis</span>
+            <span class="pill">Sequelize</span>
+            <span class="pill">TypeORM</span>
+            <span class="pill">Mongoose</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">📡 IoT & Hardware</div>
+          <div class="skill-pills">
+            <span class="pill hot">Raspberry Pi</span>
+            <span class="pill hot">Arduino</span>
+            <span class="pill">MQTT</span>
+            <span class="pill">Sensor Integration</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">🛠️ DevOps & Tools</div>
+          <div class="skill-pills">
+            <span class="pill">Git</span>
+            <span class="pill">BitBucket</span>
+            <span class="pill">Jira</span>
+            <span class="pill">Jest</span>
+            <span class="pill">Chai</span>
+            <span class="pill">Postman</span>
+            <span class="pill">Trello</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="card">
+        <div class="card-title">Education</div>
+
+        <div class="edu-item">
+          <div class="edu-icon">🎓</div>
+          <div>
+            <div class="edu-degree">MCA – Computer Application</div>
+            <div class="edu-school">RCC Institute of Information Technology, Kolkata</div>
+            <div class="edu-meta">2018–2019 · DGPA: 8.42</div>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-icon">🎓</div>
+          <div>
+            <div class="edu-degree">BCA – Computer Application</div>
+            <div class="edu-school">Belda College, Vidyasagar University</div>
+            <div class="edu-meta">2012–2015 · 66.17%</div>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-icon">📚</div>
+          <div>
+            <div class="edu-degree">HSC (WBCHSE)</div>
+            <div class="edu-school">Contai Town R.C. Vidyapith</div>
+            <div class="edu-meta">2010–2012 · 54.8%</div>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-icon">📚</div>
+          <div>
+            <div class="edu-degree">SSC (WBBSE)</div>
+            <div class="edu-school">Tararui Sri Ramkrishna Vidyabhaban</div>
+            <div class="edu-meta">2010 · 63.5%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACHIEVEMENTS -->
+      <div class="card">
+        <div class="card-title">Achievements</div>
+        <div class="ach-item"><div class="ach-dot">🏆</div><span>District Level Science Project Winner — Solar Counter (2008)</span></div>
+        <div class="ach-item"><div class="ach-dot">⛓️</div><span>Built Secure Blockchain Voting System with IoT biometric auth (MCA Thesis)</span></div>
+        <div class="ach-item"><div class="ach-dot">🤖</div><span>Room Automation using Arduino — BCA Final Year Innovation</span></div>
+        <div class="ach-item"><div class="ach-dot">📊</div><span>Predictive Claim Analysis — ML project using Data Science pipeline</span></div>
+        <div class="ach-item"><div class="ach-dot">🚀</div><span>Promoted to Engineering Manager after leading delivery of 3 simultaneous large-scale products</span></div>
+      </div>
+
+      <!-- LANGUAGES -->
+      <div class="card">
+        <div class="card-title">Languages</div>
+        <div class="lang-item">
+          <div>
+            <div style="font-size:12px;font-weight:600;">English</div>
+            <div class="lang-bar"><div class="lang-fill" style="width:90%"></div></div>
+          </div>
+        </div>
+        <div style="margin-top:8px;" class="lang-item">
+          <div style="width:100%">
+            <div style="font-size:12px;font-weight:600;">Bengali</div>
+            <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+          </div>
+        </div>
+        <div style="margin-top:8px;" class="lang-item">
+          <div style="width:100%">
+            <div style="font-size:12px;font-weight:600;">Hindi</div>
+            <div class="lang-bar"><div class="lang-fill" style="width:75%"></div></div>
+          </div>
+        </div>
+        <div style="margin-top:8px;" class="lang-item">
+          <div style="width:100%">
+            <div style="font-size:12px;font-weight:600;">Odia</div>
+            <div class="lang-bar"><div class="lang-fill" style="width:45%"></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /right -->
+  </div><!-- /main-grid -->
+
+  <!-- FOOTER -->
+  <div style="text-align:center;margin-top:20px;padding:12px;border-top:1px solid var(--border);color:var(--muted);font-size:11px;">
+    References available upon request &nbsp;·&nbsp; 
+    <a href="https://www.linkedin.com/in/subhadip-paria-08993b133" style="color:var(--accent2);text-decoration:none;">LinkedIn</a> &nbsp;·&nbsp;
+    <a href="https://github.com/subhadip123" style="color:var(--accent2);text-decoration:none;">GitHub</a> &nbsp;·&nbsp;
+    DOB: 27 Jan 1994 &nbsp;·&nbsp; Blood Group: A+
+  </div>
+
+</div>
+</body>
+</html>
